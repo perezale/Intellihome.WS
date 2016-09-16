@@ -7,6 +7,7 @@ namespace IntelliHome.WS.Models.Db
     using System.Data.Entity.Spatial;
     using System.Runtime.Serialization;
 
+
     [DataContract]
     [Table("Capability")]
     public partial class Capability
@@ -14,7 +15,7 @@ namespace IntelliHome.WS.Models.Db
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Capability()
         {
-            Device = new HashSet<Device>();
+            DeviceCapability = new HashSet<DeviceCapability>();
         }
 
         [DataMember]
@@ -32,6 +33,6 @@ namespace IntelliHome.WS.Models.Db
         public string Value_Type { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Device> Device { get; set; }
+        public virtual ICollection<DeviceCapability> DeviceCapability { get; set; }
     }
 }

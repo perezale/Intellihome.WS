@@ -29,8 +29,9 @@ namespace IntelliHome.WS.Services
         {
             using (var context = new IntellihomeContext())
             {
-                return context.Device
-                    .Include("Capability")
+                return context.Device                    
+                    .Include("DeviceCapability")
+                    .Include("DeviceCapability.Capability")
                     .FirstOrDefault(d => d.Id.Equals(id));
             }
         }
@@ -39,13 +40,12 @@ namespace IntelliHome.WS.Services
         {
             using (var context = new IntellihomeContext())
             {
-                List<UserDevice> userDevices = context.User
-                    .Include("UserDevice")
-                    .Include("UserDevice.Device")
+                var userDevices = context.User
+                    .Include("Device")
                     .Where(u => u.Id.Equals(userId))
-                    .SelectMany(u => u.UserDevice).ToList();
+                    .SelectMany(u => u.Device).ToList();
 
-                return userDevices.Select(ud => ud.Device).ToList();                
+                return userDevices;
             }
         }
     }

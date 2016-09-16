@@ -14,7 +14,7 @@ namespace IntelliHome.WS.Models.Db
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            UserDevice = new HashSet<UserDevice>();
+            Device = new HashSet<Device>();
         }
 
         [DataMember]
@@ -30,12 +30,12 @@ namespace IntelliHome.WS.Models.Db
         [Required]
         [StringLength(250)]
         public string Email { get; set; }
-
+        
         [Required]
         [StringLength(20)]
         public string Password { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserDevice> UserDevice { get; set; }
+        public virtual ICollection<Device> Device { get; set; }
     }
 }

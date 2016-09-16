@@ -29,7 +29,7 @@ namespace IntelliHome.WS.Controllers
         public IEnumerable<Capability> GetCapabilitiesByDevice(int id)
         {
             var device = deviceRepository.FindByIdComplete(id);           
-            return device.Capability;
+            return device.DeviceCapability.Select(dc => dc.Capability);
         }
     }
 }
