@@ -34,5 +34,19 @@ namespace IntelliHome.WS.Services
                     .FirstOrDefault(d => d.Id.Equals(id));
             }
         }
+
+        public List<Device> FindByUser(int userId)
+        {
+            using (var context = new IntellihomeContext())
+            {
+                List<UserDevice> userDevices = context.User
+                    .Include("UserDevice")
+                    .Include("UserDevice.Device")
+                    .Where(u => u.Id.Equals(userId))
+                    .SelectMany(u => u.UserDevice).ToList();
+
+                return userDevices.Select(ud => ud.Device).ToList();                
+            }
+        }
     }
 }

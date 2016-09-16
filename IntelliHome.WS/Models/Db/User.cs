@@ -5,7 +5,9 @@ namespace IntelliHome.WS.Models.Db
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Runtime.Serialization;
 
+    [DataContract]
     [Table("User")]
     public partial class User
     {
@@ -15,13 +17,16 @@ namespace IntelliHome.WS.Models.Db
             UserDevice = new HashSet<UserDevice>();
         }
 
+        [DataMember]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
+        [DataMember]
         [Required]
         [StringLength(250)]
         public string Name { get; set; }
 
+        [DataMember]
         [Required]
         [StringLength(250)]
         public string Email { get; set; }

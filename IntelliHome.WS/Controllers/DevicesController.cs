@@ -26,7 +26,7 @@ namespace IntelliHome.WS.Controllers
         }
 
         [Route("{id:int}/Capabilities")]
-        public IEnumerable<Capability> GetGetCapabilitiesByDevice(int id)
+        public IEnumerable<Capability> GetCapabilitiesByDevice(int id)
         {
             var device = deviceRepository.FindByIdComplete(id);           
             return device.Capability;
