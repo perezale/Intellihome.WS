@@ -18,10 +18,7 @@ namespace IntelliHome.WS.Models.Db
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id_Device { get; set; }
-
-        [StringLength(250)]
-        public string Status { get; set; }
-
+        
         public virtual Device Device { get; set; }
 
         public virtual User User { get; set; }
