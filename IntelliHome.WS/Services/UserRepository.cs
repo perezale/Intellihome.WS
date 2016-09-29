@@ -6,23 +6,23 @@ using System.Web;
 
 namespace IntelliHome.WS.Services
 {
-    public class UserRepository
+  public class UserRepository
+  {
+    public List<User> FindAll()
     {
-        public List<User> FindAll()
-        {
-            using(var context = new IntellihomeContext())
-            {
-                return context.User.ToList();
-            }
-        }
-
-        public User FindById(int userId)
-        {
-            using (var context = new IntellihomeContext())
-            {
-                return context.User.FirstOrDefault(u => u.Id.Equals(userId));
-            }
-        }
-
+      using (var context = new IntellihomeContext())
+      {
+        return context.User.ToList();
+      }
     }
+
+    public User FindById(int userId)
+    {
+      using (var context = new IntellihomeContext())
+      {
+        return context.User.FirstOrDefault(u => u.Id.Equals(userId));
+      }
+    }
+
+  }
 }

@@ -9,13 +9,13 @@ using System.Web.Http;
 
 namespace IntelliHome.WS.Controllers
 {
-    [RoutePrefix("api/Capabilities")]
-    public class CapabilitiesController : ApiController
+  [RoutePrefix("api/Capabilities")]
+  public class CapabilitiesController : ApiController
+  {
+    private CapabilityRepository capabilityRepository = new CapabilityRepository();
+    public IEnumerable<Capability> Get()
     {
-        private CapabilityRepository capabilityRepository = new CapabilityRepository();
-        public IEnumerable<Capability> Get()
-        {
-            return capabilityRepository.FindAll();
-        }
+      return capabilityRepository.FindAll();
     }
+  }
 }

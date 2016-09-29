@@ -6,15 +6,15 @@ using System.Web;
 
 namespace IntelliHome.WS.Services
 {
-    public class CapabilityRepository
+  public class CapabilityRepository
+  {
+    public List<Capability> FindAll()
     {
-        public List<Capability> FindAll()
-        {
-            using(var context = new IntellihomeContext())
-            {
-                return context.Capability.ToList();
-            }
-        }
-        
+      using (var context = new IntellihomeContext())
+      {
+        return context.Capability.ToList();
+      }
     }
+
+  }
 }
